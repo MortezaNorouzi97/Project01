@@ -1,0 +1,195 @@
+.d-flex {
+    gap: 20px;
+    /* فاصله بین باکس‌ها */
+    flex-wrap: nowrap; /* تو دسکتاپ افقی */
+    justify-content: center;
+}
+
+.custom-div {
+    border-radius: 35px;
+    width: 90px;
+    height: 480px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 90px;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    /* مخفی کردن محتوای اضافی */
+}
+
+.tab1 {
+    background-color: rgb(204, 153, 126);
+}
+
+.tab2 {
+    background-color: rgb(222, 190, 169);
+}
+
+.tab3 {
+    background-color: rgb(186, 184, 163);
+}
+
+.tab4 {
+    background-color: rgb(166, 164, 141);
+}
+
+.tab5 {
+    background-color: rgb(122, 120, 98);
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    direction: rtl;
+    transform: rotate(180deg);
+    text-align: center;
+    font-size: 18px;
+    height: 100%;
+    display: flex;
+    margin-top: 50px;
+}
+
+.custom-div::after {
+    content: '→';
+    font-size: 35px;
+    color: black;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center;
+    transform: translateX(-50%) rotate(220deg);
+}
+
+.active {
+    width: 800px;
+    height: 500px;
+    background-color: lightgray;
+}
+
+.custom-div img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.active img {
+    display: block;
+}
+
+/* مخفی کردن متن عمودی تب فعال */
+.active .vertical-text {
+    display: none;
+}
+
+/* مخفی کردن دایره برای تب فعال */
+.custom-div.active::after {
+    display: none;
+}
+
+.description {
+    direction: rtl;
+    display: none;
+    position: absolute;
+    bottom: 140px;
+    color: white;
+    font-size: 16px;
+    width: 80%;
+}
+
+.active .description {
+    display: block;
+}
+
+@font-face {
+    font-family: 'B Nazanin';
+    src: url('./Font/B-Nazanin.TTF');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'B Titr';
+    src: url('./Font/B-Titr.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'B Nazanin', sans-serif;
+}
+
+.navbar-nav .nav-link {
+    font-family: 'B Titr', sans-serif;
+    font-size: 20px;
+}
+
+
+/* -------- Responsive for Mobile --------- */
+@media screen and (max-width: 768px) {
+    .d-flex {
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 120px;
+        align-items: center;
+    }
+
+    .custom-div {
+        width: 90%;
+        max-width: 400px;
+        height: auto; /* ارتفاع خودکار برای متن و تصویر */
+        flex-direction: column; /* چینش آیتم ها از بالا به پایین */
+        align-items: center;
+        padding: 1rem;
+        border-radius: 20px;
+    }
+
+    .vertical-text {
+        writing-mode: horizontal-tb !important;
+        transform: none !important;
+        margin-top: 0;
+        font-size: 22px;
+        height: auto;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .custom-div::after {
+        display: none; /* پیکان مخفی */
+    }
+
+    .active {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        background-color: lightgray;
+        padding: 1rem;
+    }
+
+    .description {
+        position: static;
+        width: 100%;
+        color: black;
+        font-size: 18px;
+        margin-top: 1rem;
+    }
+
+    .custom-div img {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin-top: 1rem;
+        border-radius: 15px;
+    }
+}
